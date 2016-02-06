@@ -12,10 +12,10 @@
 ## CHANGE THE SETTINGS BELOW
 
 ## this can be any unique string. initials work well.
-user_string="<userstring"
+user_string="<userstring>"
 
 ## email address to notify when conversion is completed. 
-notify_email="<email address>"
+notify_email="<email>"
 
 ## directory in which to place renamed audio, relative to the export directory.
 audio_dir="../Bounces"
@@ -31,6 +31,12 @@ vcs_name=".nuendo_convert_config"
 ## NOT NOT CHANGE BELOW THIS LINE!
 ## (unless you really want to)
 
+if [ ! -e "$@" ]; then
+	echo ERROR: file not found or bad arguments
+	echo "$@"
+	exit 1
+fi
+
 array_from_file() {
     my_array=() 
     while IFS= read -r line 
@@ -42,8 +48,9 @@ array_from_file() {
 file="$@"
 today=$(date +"%Y%m%d")
 
-filename_trunk="${file%.*}"
-filename_ext="${file##*.}"
+filename=$(basename "$file")
+filename_trunk="${filename%.*}"
+filename_ext="${filename##*.}"
 input_movie=$filename_trunk".mov"
 
 if [ -e $vcs_name ]; then
