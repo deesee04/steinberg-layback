@@ -1,22 +1,25 @@
-# steinberg-layback
+### steinberg-layback
 automatically process laybacks from steinberg products such as cubase and nuendo.
 
-daw: nuendo
-platform: osx
-requirements: fswatch, ffmpeg*
+- daw: nuendo
+- platform: osx
+- requirements: fswatch, ffmpeg**
 
-*ffmpeg must include the libx264 codec**
-**sorta. you can change the codec (and options) if you want. though, as of this commit.. why would you? 
+**ffmpeg must include the libx264 codec***
 
-dependencies:
+***sorta. you can change the codec (and options) if you want. though, as of this commit.. why would you? 
+
+#### dependencies:
 
 install fswatch via homebrew:
+```sh
     $ brew update
     $ brew install fswatch
+```
 
 download/clone the script and place it in a directory of your choosing (such as ~/My Documents).
 
-quick setup:
+###quick setup:
 
   place the source video file in a directory of your choosing (e.g. ~/My Documents/Sessions/ProjectName/Source/Video). rename the video file according to the base naming convention you wish to use for this project (e.g. Client_Project_VideoVersionNumber.mov).
 
@@ -29,5 +32,6 @@ quick setup:
     e. vcs_name : the name of the configuration file. there's no reason to change this... unless you are incredibly picky. like me. 
 
   configure fswatch:
-
+```sh
     $ fswatch -d0v -e ".*" -i ".wav" /path/to/project/exports | xargs -0 -n1 /path/to/script/nuendo-convert.sh
+```
