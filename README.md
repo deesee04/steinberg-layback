@@ -8,16 +8,13 @@ requirements: fswatch, ffmpeg*
 *ffmpeg must include the libx264 codec**
 **sorta. you can change the codec (and options) if you want. though, as of this commit.. why would you? 
 
-installation:
+dependencies:
 
 install fswatch via homebrew:
+    $ brew update
+    $ brew install fswatch
 
-  $ brew update
-  $ brew install fswatch
-
-download/clone the script and place it in a directory of your choosing (such as ~/My Documents):
-
-  http://link/to/script
+download/clone the script and place it in a directory of your choosing (such as ~/My Documents).
 
 quick setup:
 
