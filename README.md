@@ -3,11 +3,9 @@ automatically process laybacks from steinberg products such as cubase and nuendo
 
 - daw: nuendo
 - platform: osx
-- requirements: fswatch, ffmpeg**
+- requirements: fswatch, ffmpeg
 
-**ffmpeg must include the libx264 codec***
-
-***sorta. you can change the codec (and options) if you want. though, as of this commit.. why would you? 
+note: ffmpeg must include the libx264 codec (sorta. you can change the codec (and options) if you want. though, as of this commit.. why would you?)
 
 #### dependencies:
 
