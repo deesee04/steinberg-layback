@@ -3,19 +3,22 @@ automatically process laybacks from steinberg products such as cubase and nuendo
 
 - daw: nuendo
 - platform: osx
-- requirements: fswatch, ffmpeg
+- requirements: xmllint, ffmpeg
 
 note: ffmpeg must include the libx264 codec (sorta. you can change the codec (and options) if you want. though, as of this commit.. why would you?)
 
 #### dependencies:
 
-install fswatch via homebrew:
+install xmllint via the libxml2 package via homebrew:
 ```sh
     $ brew update
-    $ brew install fswatch
+    $ brew install libxml2
 ```
 
-download/clone the script and place it in a directory of your choosing (such as ~/My Documents).
+download/clone the repository.
+
+place the nuendo-convert.sh script in a directory of your choosing (such as ~/My Documents).
+place the nuendo-convert.aepp file in the /Library/Application Support/Steinberg/Audio Export Post Process Scripts/
 
 ###quick setup:
 
@@ -27,9 +30,17 @@ download/clone the script and place it in a directory of your choosing (such as 
     b. notify_email : the email address to notify when the process has completed. 
     c. audio_dir : the final directory in which you wish to place your bounced audio. once the process has completed, the audio exported from the session will be renamed to reflect the same convention as the converted video.  
     d. converted_dir : the final directory in which you wish to place your layback. 
-    e. vcs_name : the name of the configuration file. there's no reason to change this... unless you are incredibly picky. like me. 
+    e. r_folder_depth : the amount of folders we should back up before creating the two defined above. setting this to 0 will create the two folders above in the same folder as your movie clip. 
+    f. vcs_name : the name of the configuration file. there's no reason to change this... unless you are incredibly picky. like me. 
 
-  configure fswatch:
-```sh
-    $ fswatch -d0v -e ".*" -i ".wav" /path/to/project/exports | xargs -0 -n1 /path/to/script/nuendo-convert.sh
-```
+##usage:
+
+  choose a cycle region and select 'audio mixdown'. name the export with the same name as your movie clip and place it in the same directory. 
+  
+  for example, if the movie clip is found at: /Users/myuser/Desktop/Project/mymovie_01_cut2.mov, export the mixdown to: /Users/myuser/Desktop/project/mymovie_01_cut2.wav
+  
+  in the 'audio mixdown' window, under 'post process', select 'layback to video and rename/version".
+ 
+  
+
+
