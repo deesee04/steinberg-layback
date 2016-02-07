@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AudioExportPostProcess>
+	<Description>
+		<us>Layback to video and rename/version</us>
+	</Description>
+	<Icon>nuendo-convert.png</Icon>
+	<Executable>
+		<Path>/path/to/nuendo-convert.sh</Path>
+		<Argument>$PATH</Argument>
+	</Executable>
+	<RunOnce>true</RunOnce>
+	<WaitDone>false</WaitDone>	
+</AudioExportPostProcess>
+
+
+
