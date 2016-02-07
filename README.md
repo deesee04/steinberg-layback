@@ -5,7 +5,7 @@ automatically process laybacks from steinberg products such as cubase and nuendo
 - platform: osx
 - requirements: xmllint, ffmpeg
 
-note: ffmpeg must include the libx264 codec (sorta. you can change the codec (and options) if you want. though, as of this commit.. why would you?)
+note: ffmpeg must include the libx264 codec (sorta. you can change the codec (and options) if you want. 
 
 #### dependencies:
 
@@ -17,14 +17,18 @@ install xmllint via the libxml2 package via homebrew:
 
 download/clone the repository.
 
-place the nuendo-convert.sh script in a directory of your choosing (such as ~/My Documents).
-place the nuendo-convert.aepp file in the /Library/Application Support/Steinberg/Audio Export Post Process Scripts/
+- place the nuendo-convert.sh script in a directory of your choosing (such as ~/My Documents).
+- place the nuendo-convert.aepp file in the /Library/Application Support/Steinberg/Audio Export Post Process Scripts/ folder.
+- place the nuendo-convert.png file in the /Library/Application Support/Steinberg/Audio Export Post Process Scripts/ folder.
 
 ###quick setup:
 
-  place the source video file in a directory of your choosing (e.g. ~/My Documents/Sessions/ProjectName/Source/Video). rename the video file according to the base naming convention you wish to use for this project (e.g. Client_Project_VideoVersionNumber.mov).
+  - place the source video file in a directory of your choosing (e.g. ~/My Documents/Sessions/ProjectName/Source/Video). 
+  - rename the video file according to the base naming convention you wish to use for this project (e.g. Client_Project_VideoVersionNumber.mov).
 
-  edit the config settings:
+  edit the text between the PATH tags in nuendo-convert.aepp to reflect the path to the nuendo-convert.sh script.
+
+  edit the config settings at the top of nuendo-convert.sh:
 
     a. user_string : a unique identifier. useful for tracking the last known owner. any string will do, but choosing something meaningful is a good idea. initials always work. 
     b. notify_email : the email address to notify when the process has completed. 
