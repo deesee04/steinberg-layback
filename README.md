@@ -26,22 +26,22 @@ download/clone the repository.
   - place the source video file in a directory of your choosing (e.g. ~/My Documents/Sessions/ProjectName/Source/Video). 
   - rename the video file according to the base naming convention you wish to use for this project (e.g. Client_Project_VideoVersionNumber.mov).
 
-  edit the text between the PATH tags in nuendo-convert.aepp to reflect the path to the nuendo-convert.sh script.
+edit the text between the PATH tags in nuendo-convert.aepp to reflect the path to the nuendo-convert.sh script.
 
-  edit the config settings at the top of nuendo-convert.sh:
+edit the config settings at the top of nuendo-convert.sh:
+  
+   - ```user_string``` : a unique identifier. useful for tracking the last known owner. any string will do, but choosing something meaningful is a good idea. initials always work. 
+   - ```notify_email``` : the email address to notify when the process has completed. 
+   - ```audio_dir``` : the final directory in which you wish to place your bounced audio. once the process has completed, the audio exported from the session will be renamed to reflect the same convention as the converted video.  
+   - ```converted_dir``` : the final directory in which you wish to place your layback. 
+   - ```r_folder_depth``` : the amount of folders we should back up before creating the two defined above. setting this to 0 will create the two folders above in the same folder as your movie clip. 
+   - ```vcs_name``` : the name of the configuration file. there's no reason to change this... unless you are incredibly picky. like me. 
 
-    a. user_string : a unique identifier. useful for tracking the last known owner. any string will do, but choosing something meaningful is a good idea. initials always work. 
-    b. notify_email : the email address to notify when the process has completed. 
-    c. audio_dir : the final directory in which you wish to place your bounced audio. once the process has completed, the audio exported from the session will be renamed to reflect the same convention as the converted video.  
-    d. converted_dir : the final directory in which you wish to place your layback. 
-    e. r_folder_depth : the amount of folders we should back up before creating the two defined above. setting this to 0 will create the two folders above in the same folder as your movie clip. 
-    f. vcs_name : the name of the configuration file. there's no reason to change this... unless you are incredibly picky. like me. 
-
-##usage:
+###usage:
 
   choose a cycle region and select 'audio mixdown'. name the export with the same name as your movie clip and place it in the same directory. 
   
-  for example, if the movie clip is found at: /Users/myuser/Desktop/Project/mymovie_01_cut2.mov, export the mixdown to: /Users/myuser/Desktop/project/mymovie_01_cut2.wav
+  for example, if the movie clip is found at: ```/Users/myuser/Desktop/Project/mymovie_01_cut2.mov```, export the mixdown to: ```/Users/myuser/Desktop/project/mymovie_01_cut2.wav```
   
   in the 'audio mixdown' window, under 'post process', select 'layback to video and rename/version".
  
